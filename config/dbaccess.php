@@ -1,7 +1,7 @@
 <?php
   
 class connector	
-  {
+ {
   	private $connection;
     private $hostName;
     private $userName;

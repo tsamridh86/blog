@@ -1,0 +1,30 @@
+.login 
+{
+	margin-left: 40%;
+	background: khaki;
+	width: 300px;
+	padding: 10px;
+	padding-left: 10px;
+	border: 1px solid green;
+	border-radius: 8px;
+	box-shadow: 10px 10px 5px #888888;
+
+}
+
+.login h4
+{
+	font-family: "ubuntu";
+	font-size: 18px;
+}
+
+.login input
+{
+	font-family: "ubuntu";
+	padding: 5px;
+	border-radius: 5px;
+	background: #f4f4f4;
+}
+.login  p 
+{
+	font-family: "ubuntu";
+}
