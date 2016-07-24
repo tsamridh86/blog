@@ -88,7 +88,7 @@
 			else echo "Not Active.";
 			echo "</td>";
 			echo "<td>".$this->updatedOn."</td>" ;
-			if($this->endDate)
+			if($this->endDate && $this->endDate != "0000-00-00")
 			echo "<td>".$this->endDate."</td>" ;
 			else
 				echo "<td></td>";	
