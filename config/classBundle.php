@@ -11,13 +11,11 @@
 		private $isActive;
 		private $updatedOn;
 		private $endDate;
-		private $type;
-		//the private variable type is used to define the type of the user, whether it is a normal user or the admin blogger, however the normal viewers do not have to login
-
+		
 		public function __construct()
 		{
 			//we make sure that the table is created & if it is not then we create it on the spot.
-			$createBlogger = "create table if not exists blogger_info ( bloggerId int primary key auto_increment, userName varchar(50), password varchar(25), createdDate date, isActive char(1), updatedDate date, endDate date)";
+			$createBlogger = "create table if not exists blogger_info ( bloggerId int primary key auto_increment, userName varchar(50), password varchar(25), createdDate date, isActive char(1) default 'N', updatedDate date, endDate date)";
 			$connect = new connector();
 			$connect->executeQuery($createBlogger);
 		}
@@ -54,30 +52,48 @@
 			
 			else //create account if it is a unique userName 
 			{
-				$createUser = "insert into blogger_info (userName , password, createdDate , isActive , updatedDate , endDate ) values ('".$userName."','".$password."','".date("Y-m-d")."','Y','".date("Y-m-d")."',NULL)";
+				$createUser = "insert into blogger_info (userName , password, createdDate , updatedDate , endDate ) values ('".$userName."','".$password."','".date("Y-m-d")."','".date("Y-m-d")."',NULL)";
 				$connect->executeQuery($createUser);
 				return "Account successfully created.";
 			}
 		}
 
-		public function showDetails()
+		public function showDetails($userName)
 		{
-			$this->getDetails($this->userName);
-			
-			echo "Blogger ID : ".$this->bloggerId."<br>" ;
-			echo "User Name : ".$this->userName."<br>" ;
-			echo "Password : ".$this->password."<br>" ;
-			echo "Created On : ".$this->createdOn."<br>" ;
-			echo "Activity : ";
+			$this->getDetails($userName);
+			echo "<p>Blogger ID : ".$this->bloggerId."</p>" ;
+			echo "<p>User Name : ".$this->userName."</p>" ;
+			echo "<p>Password : ".$this->password."</p>" ;
+			echo "<p>Created On : ".$this->createdOn."</p>" ;
+			echo "<p>Activity : ";
 			if($this->isActive == 'Y')
 				echo "Active.";
 			else echo "Not Active.";
-			echo "<br>";
-			echo "Updated On: ".$this->updatedOn."<br>" ;
+			echo "</p>";
+			echo "<p>Updated On: ".$this->updatedOn."</p>" ;
 			if($this->endDate)
-			echo "End date : ".$this->endDate."<br>" ;
-
+			echo "<p>End date : ".$this->endDate."</p>" ;
 		}
+
+		public function showDetailsAsTable($userName)
+		{
+			$this->getDetails($userName);
+			echo "<td>".$this->bloggerId."</td>" ;
+			echo "<td>".$this->userName."</td>" ;
+			echo "<td>".$this->password."</td>" ;
+			echo "<td>".$this->createdOn."</td>" ;
+			echo "<td>";
+			if($this->isActive == 'Y')
+				echo "Active.";
+			else echo "Not Active.";
+			echo "</td>";
+			echo "<td>".$this->updatedOn."</td>" ;
+			if($this->endDate)
+			echo "<td>".$this->endDate."</td>" ;
+			else
+				echo "<td></td>";	
+		}
+
 		public function login ($userName , $password )
 		{
 			if(mysqli_num_rows($this->checkUser($userName , $password)))
@@ -97,6 +113,16 @@
 		public function logout ()
 		{
 			session_destroy();
+		}
+
+		public function isActive()
+		{
+			return $this->isActive;
+		}
+
+		public function getId()
+		{
+			return $this->bloggerId;
 		}
 	}
 
