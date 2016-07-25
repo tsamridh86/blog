@@ -56,16 +56,24 @@ body
 .details p
 {
 	font-family: inherit;
-	padding-top:2px;
-	padding-bottom: 2px;
-	margin:2px;
+		
+}
+
+.details form 
+{
+	margin:0px;
 }
 
 .details button
 {
-	margin: 4px;
 	border-radius:4px;
 	padding: 10px;
 	background: #1414f3;
 	color:white;
+}
+
+
+.logout 
+{
+	float:right;
 }

@@ -28,11 +28,13 @@
 <link rel="stylesheet" type="text/css" href="/blog/css/admin.css">
 </head>
 <body>
+	<a href="/blog/admin/logout.php" class='logout'>Logout</a>
 	<div class="header">
 		<h4>List of Bloggers :</h4>
 		<hr>
 	</div>
 	<table class='details'>
+	<thead>
 	<tr>
 	<td>Blogger Id</td>
 	<td>Blogger Name</td>
@@ -43,6 +45,8 @@
 	<td>End Date</td>
 	<td>Change Activity</td>
 	</tr>
+	</thead>
+	<tbody>
 		<?php
 			$allBloggers = "select userName from blogger_info";
 			$allBloggers = $connect->executeQuery($allBloggers);
@@ -68,6 +72,7 @@
 
 			}
 		?>
+		</tbody>
 		</table>
 </body>
 </html>
