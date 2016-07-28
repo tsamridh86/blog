@@ -4,6 +4,7 @@ body
 }
 .login 
 {
+	font-family: "ubuntu";
 	margin-left: 40%;
 	background: khaki;
 	width: 300px;
@@ -17,22 +18,17 @@ body
 
 .login h4
 {
-	font-family: "ubuntu";
+	
 	font-size: 18px;
 }
 
 .login input
 {
-	font-family: "ubuntu";
 	padding: 5px;
 	border-radius: 5px;
 	background: #f4f4f4;
 }
 
-.login  p 
-{
-	font-family: "ubuntu";
-}
 
 .header
 {
