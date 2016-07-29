@@ -5,12 +5,6 @@
 
 -->
 
-<?php
-	//the php code for the login of the user will come here.
-	if(!empty($_POST['userName']) && !empty($_POST['pswd']))
-	//the php code for the signup of the user will come here.
-	if(!empty($_POST['newName']) && !empty($_POST['newPswd']))
-?>
 
 <!doctype html>
 <head>
@@ -21,11 +15,38 @@
 	<link rel="stylesheet" type="text/css" href="../css/admin.css">
 </head>
 <title>Login Page</title>
+
+<?php
+	//call in the heavy guns
+	require '../config/classBundle.php';
+
+	//if the user is already logged in, send him away
+	session_start();
+	if(!empty($_SESSION['userName']))
+		header("location:userPage.php");
+
+	//the php code for the login of the user will come here.
+	if(!empty($_POST['userName']) && !empty($_POST['pswd']))
+	{
+		$blogger = new blogger();
+		$blogger->login($_POST['userName'],$_POST['pswd']);
+		if(!empty($_SESSION['userName']))
+			header("location:index.php");
+	}
+	//the php code for the signup of the user will come here.
+	if(!empty($_POST['newName']) && !empty($_POST['newPswd']))
+	{
+		$blogger = new blogger();
+		$blogger->createBlogger($_POST['newName'],$_POST['newPswd']);
+	}
+?>
+
 <body>
 	<!--This class is the admin wala, rest is pure magic -->
 	<form method='post' action="index.php">
 	<div class="login" id="login">
 		<h4> Enter user details here </h4>
+		<span id="tar"> </span>
 			<p>User Name :</p>
 			<input type="text" name="userName">
 			<br>

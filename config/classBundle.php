@@ -29,7 +29,7 @@
 			return $res;
 		}
 
-		private function getDetails($userName)
+		public function getDetails($userName)
 		{
 			$connect = new connector();
 			$details = "select * from blogger_info where userName = '".$userName."'";
@@ -48,13 +48,13 @@
 		{
 			$connect = new connector();
 			if(mysqli_num_rows($this->checkUser($userName, $password)))
-				return "The userName already exists, please try another name.";
+				echo "<p class='error'>The User Name already exists, please try another name.</p>";
 			
 			else //create account if it is a unique userName 
 			{
 				$createUser = "insert into blogger_info (userName , password, createdDate , updatedDate , endDate ) values ('".$userName."','".$password."','".date("Y-m-d")."','".date("Y-m-d")."',NULL)";
 				$connect->executeQuery($createUser);
-				return "Account successfully created.";
+				echo "<p class='success'>Account successfully created. Login to begin.</p>";
 			}
 		}
 
@@ -105,7 +105,7 @@
 			}
 			else 
 			{
-				echo "No such account exists.";
+				echo "<p class='error'>No such account exists.</p>";
 				return 0;
 			}
 		}

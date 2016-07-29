@@ -3,3 +3,10 @@
 	cursor: pointer;
 }
 
+.error
+{
+	color:red;
+	font-family:"calibri";
+	font-size: 15px;
+	margin-left:41%;
+}
