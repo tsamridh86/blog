@@ -117,7 +117,8 @@
 
 		public function isActive()
 		{
-			return $this->isActive;
+			if($this->isActive=='Y') return 1;
+			else return 0;
 		}
 
 		public function getId()
