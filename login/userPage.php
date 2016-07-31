@@ -44,7 +44,21 @@ if(!$blogger->isActive())
 </div>
 <!--This is the larger container where all the blogs will show up -->
 <div class='blogContainer'> 
+<?php
+	//retrieve all the blogs written by the user
+	$connect = new connector();
+	$que = "select * from blog_master where bloggerId = ".$blogger->getId();
+	$blogs = $connect->executeQuery($que);
+	if(empty($blogs)) echo "<p> You have not written any blogs yet. </p>";
+	else
+	while($blog = $blogs->fetch_assoc())
+	{
+?>
 <div class="blog">
+<h3><?php echo $blog['blogTitle']; ?></h3>
+<p class='cat'> Category : <?php echo $blog['blogCategory']; ?></p>
+<p class='desc'> <?php echo $blog['blogDesc']; ?> </p>
 </div>
+<?php } ?>
 </body>
 </html>

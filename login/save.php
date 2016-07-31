@@ -9,6 +9,6 @@
 	$blogger->getDetails($_SESSION['userName']);
 	//time to save in the database, calling in the blog class
 	$blog = new blog();
-	$blog->writeblog($blogger->getId(), $_POST['title'], $_POST['desc'] , $_POST['category'] , $_SESSION['userName']);
+	$blog->writeblog($blogger->getId(), $_POST['title'], $_POST['desc'] , $_POST['category']);
 	header("location:userPage.php");
 ?>

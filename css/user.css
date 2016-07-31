@@ -64,3 +64,10 @@ textarea {
 	color:red;
 	text-decoration: none;
 }
+
+.blog {
+	background: #f3f3f3;	
+	padding : 5px;
+	margin:10px;
+	font-family: "open sans";
+}

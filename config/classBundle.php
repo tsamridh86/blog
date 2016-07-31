@@ -143,7 +143,7 @@
 		public function __construct()
 		{
 			//we make sure that the table is created & if it is not then we create it on the spot.
-			$createBlogger = "create table if not exists blog_master ( blogId int primary key auto_increment, bloggerId int references bloggerId(blogger_info) , blogtitle varchar(50), blogDesc varchar(100), blogCategory varchar(10), createdDate date,  updatedDate date default NULL, blogActivity char(1) default 'A')";
+			$createBlogger = "create table if not exists blog_master ( blogId int primary key auto_increment, bloggerId int references bloggerId(blogger_info) , blogTitle varchar(50), blogDesc varchar(100), blogCategory varchar(10), createdDate date,  updatedDate date default NULL, blogActivity char(1) default 'A')";
 			$connect = new connector();
 			$connect->executeQuery($createBlogger);
 		}
@@ -157,13 +157,12 @@
 			$this->blogId = $connect->executeQuery($id);
 		}
 
-		public function writeBlog($bloggerId, $blogTitle, $blogDesc , $blogCategory , $blogAuthor)
+		public function writeBlog($bloggerId, $blogTitle, $blogDesc , $blogCategory )
 		{
 			$this->bloggerId = $bloggerId;
 			$this->blogTitle = $blogTitle;
 			$this->blogDesc = $blogDesc;
 			$this->blogCategory = $blogCategory;
-			$this->blogAuthor = $blogAuthor;
 			$this->saveBlog();
 		}
 
