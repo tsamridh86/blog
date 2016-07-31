@@ -7,11 +7,11 @@
 
 <?php
 	session_start();
-	if(($_POST['userName']=="admin" && $_POST['pswd']=="admin@123")||$_SESSION['user']=='admin')
+	if(($_POST['userName']=="admin" && $_POST['pswd']=="admin@123")||$_SESSION['userName']=='admin')
 	{
 		//if the permission are correct
 		//begin the administrator session
-		$_SESSION['user'] = 'admin';
+		$_SESSION['userName'] = 'admin';
 		require '../config/classBundle.php';	//call the required classes
 		$connect = new connector(); 			//begin a connection to the database 
 		if(!empty($_POST['aId'])&&!empty($_POST['activity']))
