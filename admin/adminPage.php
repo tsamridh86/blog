@@ -62,7 +62,7 @@
 					  <input type = 'hidden' name = 'aId'value = ".$blogger->getId().">";
 				
 				//keep in the mind that the values have been swapped for easier jugaad
-				if($blogger->isActive()=='Y')
+				if($blogger->isActive()!='Y')
 					echo "<button name='activity' type= 'submit' value = 'N'>Deactivate</button>";
 				else 
 					echo "<button name='activity' type='submit' value = 'Y'>Activate</button>";

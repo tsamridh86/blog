@@ -33,5 +33,18 @@
 <a class="right" href="../admin/logout.php">Log Out</a>
 <hr>
 </div>
+<!--This div will be shown if the user does not have the inserting rights. inserting rights lol. -->
+<?php 
+if(!$blogger->isActive())
+	echo "<div>The administrator has disabled your blog writing temporarily.</div>";
+?>	
+<!--This section is to get all the blogs that have been written by the user -->
+<div class="welcome">
+<strong> Written Blogs : </strong>	
+</div>
+<!--This is the larger container where all the blogs will show up -->
+<div class='blogContainer'> 
+<div class="blog">
+</div>
 </body>
 </html>

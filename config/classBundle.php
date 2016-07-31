@@ -135,9 +135,33 @@
 		public $blogTitle;
 		public $blogDesc;
 		public $blogCategory;
-		public $blogAuthor;
+		public $blogAuthor;		//did not bother to create a table in the database for this guy, because it can be acheived by a natural join
 		public $createdOn;
 		public $updatedOn;
+
+		//the constructor will only create the table if it does not exists
+		public function __construct()
+		{
+			//we make sure that the table is created & if it is not then we create it on the spot.
+			$createBlogger = "create table if not exists blog_master ( blogId int primary key auto_increment, bloggerId int references bloggerId(blogger_info) , blogtitle varchar(50), blogDesc varchar(25), createdDate date, blogCategory varchar(10), updatedDate date)";
+			$connect = new connector();
+			$connect->executeQuery($createBlogger);
+		}
+
+		public function getBlogId()
+		{
+			return $this->blogId;
+		}
+
+		public function getBloggerId()
+		{
+			return $this->bloggerId;
+		}
+
+		public function getBlogActivity()
+		{
+			return $this->blogActivity;
+		}
 	}
 
 
