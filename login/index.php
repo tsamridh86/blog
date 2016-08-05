@@ -48,7 +48,7 @@
 		<h4> Enter user details here </h4>
 		<span id="tar"> </span>
 			<p>User Name :</p>
-			<input type="text" name="userName">
+			<input type="text" name="userName" >
 			<br>
 			<p>Password : </p>
 			<input type="password" name="pswd">
