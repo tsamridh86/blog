@@ -48,7 +48,7 @@ class connector
   function nameOfImage ( $fileName) 
   {
   	$i = 0;
-		while(file_exists("images/".$fileName))
+		while(file_exists("../images/".$fileName))
 		{
 			if(!$i) 
 			$fileName = substr($fileName,0,-4).$i.substr($fileName, -4);
