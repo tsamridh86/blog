@@ -47,7 +47,7 @@ if(!$blogger->isActive())
 <?php
 	//retrieve all the blogs written by the user
 	$connect = new connector();
-	$que = "select * from blog_master where bloggerId = ".$blogger->getId();
+	$que = "select * from blog_master natural join blog_detail_image where bloggerId = ".$blogger->getId();
 	$blogs = $connect->executeQuery($que);
 	if(empty($blogs)) echo "<p> You have not written any blogs yet. </p>";
 	else
@@ -55,6 +55,7 @@ if(!$blogger->isActive())
 	{
 ?>
 <div class="blog">
+<img src="<?php echo "../".$blog['blogImage']; ?>" class='img'>
 <h3><?php echo $blog['blogTitle']; ?></h3>
 <p class='cat'> Category : <?php echo $blog['blogCategory']; ?></p>
 <p class='desc'> <?php echo $blog['blogDesc']; ?> </p>

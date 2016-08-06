@@ -138,14 +138,17 @@
 		public $blogAuthor;		//did not bother to create a table in the database for this guy, because it can be acheived by a natural join
 		public $createdOn;
 		public $updatedOn;
+		public $imgLoc;
 
 		//the constructor will only create the table if it does not exists
 		public function __construct()
 		{
 			//we make sure that the table is created & if it is not then we create it on the spot.
 			$createBlogger = "create table if not exists blog_master ( blogId int primary key auto_increment, bloggerId int references bloggerId(blogger_info) , blogTitle varchar(50), blogDesc varchar(100), blogCategory varchar(10), createdDate date,  updatedDate date default NULL, blogActivity char(1) default 'A')";
+			$createImage = "create table if not exists blog_detail_image (blogDetailId int primary key auto_increment, blogId int references blogId(blog_master), blogImage varchar(50))";
 			$connect = new connector();
 			$connect->executeQuery($createBlogger);
+			$connect->executeQuery($createImage);
 		}
 
 		public function saveBlog()
@@ -153,16 +156,21 @@
 			$save = "insert into blog_master (bloggerId , blogTitle , blogDesc , blogCategory , createdDate ) values (".$this->bloggerId.",'".$this->blogTitle."','".$this->blogDesc."','".$this->blogCategory."','".date("Y-m-d")."')";
 			$connect = new connector();
 			$connect->executeQuery($save);
-			$id = "select max(bloggerId) from blog_master";
-			$this->blogId = $connect->executeQuery($id);
+			$id = "select max(bloggerId) as blogId from blog_master";
+			$res = $connect->executeQuery($id);
+			$res = $res->fetch_assoc();
+			$this->blogId = $res['blogId'];
+			$saveImg = "insert into blog_detail_image (blogId , blogImage) values (".$this->blogId.",'".$this->imgLoc."')";
+			$connect->executeQuery($saveImg);
 		}
 
-		public function writeBlog($bloggerId, $blogTitle, $blogDesc , $blogCategory )
+		public function writeBlog($bloggerId, $blogTitle, $blogDesc , $blogCategory , $imgLoc)
 		{
 			$this->bloggerId = $bloggerId;
 			$this->blogTitle = $blogTitle;
 			$this->blogDesc = $blogDesc;
 			$this->blogCategory = $blogCategory;
+			$this->imgLoc = $imgLoc;
 			$this->saveBlog();
 		}
 

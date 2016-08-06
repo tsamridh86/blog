@@ -21,7 +21,7 @@
 	$blogger->getDetails($_SESSION['userName']);
 
 ?>
-<form method="post" action="save.php">
+<form method="post" action="save.php" enctype="multipart/form-data">
 <table class="title">
 <tr>
 	<td class = 'left'><span>Title : </span></td>
@@ -30,6 +30,10 @@
 <tr>
 	<td class = 'left'><span>Category :</span></td>
 	<td class="small"> <input type="text" name="category" maxlength="10"></td>
+</tr>
+<tr>
+	<td class = 'left'><span>Image :</span></td>
+	<td class="small"> <input type="file" name="pic"></td>
 </tr>
 <tr><td><span>Description :</span></td></tr>
 </table>
