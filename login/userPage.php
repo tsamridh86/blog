@@ -55,10 +55,13 @@ if(!$blogger->isActive())
 	{
 ?>
 <div class="blog">
+<form method='post' action='edit.php'>
 <img src="<?php echo "../".$blog['blogImage']; ?>" class='img'>
 <h3><?php echo $blog['blogTitle']; ?></h3>
 <p class='cat'> Category : <?php echo $blog['blogCategory']; ?></p>
-<p class='desc'> <?php echo $blog['blogDesc']; ?> </p>
+<p class='desc'> <?php echo $blog['blogDesc']; ?> 
+<input type='submit' value="Edit" class="right ipt"></p>
+</form>
 </div>
 <?php } ?>
 </body>

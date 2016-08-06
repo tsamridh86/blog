@@ -156,7 +156,7 @@
 			$save = "insert into blog_master (bloggerId , blogTitle , blogDesc , blogCategory , createdDate ) values (".$this->bloggerId.",'".$this->blogTitle."','".$this->blogDesc."','".$this->blogCategory."','".date("Y-m-d")."')";
 			$connect = new connector();
 			$connect->executeQuery($save);
-			$id = "select max(bloggerId) as blogId from blog_master";
+			$id = "select max(blogId) as blogId from blog_master";
 			$res = $connect->executeQuery($id);
 			$res = $res->fetch_assoc();
 			$this->blogId = $res['blogId'];
