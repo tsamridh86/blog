@@ -184,9 +184,31 @@
 			return $this->bloggerId;
 		}
 
-		public function getBlogActivity()
+		public function getBlogActivity()	// i have no clue why we need this anyway, it's NULL all the time lol
 		{
 			return $this->blogActivity;
+		}
+
+		public function getBlog($id)	//to display on the main page, #OOP style
+		{
+			$connect = new connector;
+			$res = $connect->executeQuery("select * from blog_master where blogId = ".$id);
+			$res = $res->fetch_assoc();
+			$this->blogId = $id;
+			$this->bloggerId = $res['bloggerId'];
+			$this->blogTitle = $res['blogTitle'];
+			$this->blogDesc = $res['blogDesc'];
+			$this->blogCategory = $res['blogCategory'];
+			$this->createdOn = $res['createdDate'];
+			$this->blogActivity = $res['blogActivity'];
+			if(!empty($res['updatedDate']))
+				$this->updatedOn = $res['updatedDate'];
+			$img = $connect->executeQuery("select blogImage from blog_detail_image where blogId = ".$id);
+			$img = $img->fetch_assoc();
+			$this->imgLoc = $img['blogImage'];
+			$authorName = $connect->executeQuery("select userName from blogger_info where bloggerId = ".$this->bloggerId);
+			$authorName = $authorName->fetch_assoc();
+			$this->blogAuthor = $authorName['userName'];
 		}
 	}
 

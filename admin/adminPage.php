@@ -68,12 +68,38 @@
 					echo "<button name='activity' type='submit' value = 'Y'>Activate</button>";
 				
 				echo "</form></td></tr>";
-					  
-
 			}
 		?>
 		</tbody>
 		</table>
+	<table class='details'>
+	<thead>
+	<tr>
+	<td>Blog Author</td>
+	<td>Blog Title</td>
+	<td>Category</td>
+	<td>Description</td>
+	<td>Activity</td>
+	<td>Created On</td>
+	<td>Updated On</td>
+	<td>Change Activity</td>
+	</tr>
+	</thead>
+	<tbody>
+		<?php
+			$allBlogs = "select blogId from blog_master";
+			$allBlogs = $connect->executeQuery($allBlogs);
+			$blog = new blog();
+			while($row = $allBlogs->fetch_assoc())
+			{
+				
+				echo "<tr>";
+				
+				echo "</tr>";
+			}
+		?>
+		</tbody>
+		</table>	
 </body>
 </html>
 <?php

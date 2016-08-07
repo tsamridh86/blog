@@ -33,19 +33,22 @@
 	//retrieve all the blogs written by the user
 	require '/config/classBundle.php';
 	$connect = new connector();
-	$que = "select * from blog_master natural join blog_detail_image order by createdDate desc";
+	$disp = new blog();
+	$que = "select blogId from blog_master order by createdDate desc";
 	$blogs = $connect->executeQuery($que);
 	if(empty($blogs)) echo "<p> There are no blogs here honey. </p>";
 	else
 	while($blog = $blogs->fetch_assoc())
 	{
+		$disp->getBlog($blog['blogId']);
 ?>
 <div class="blog">
 <form method='post' action='edit.php'>
-<img src="<?php echo $blog['blogImage']; ?>" class='img-responsive'>
-<h3><?php echo $blog['blogTitle']; ?></h3>
-<p class='cat'> Category : <?php echo $blog['blogCategory']; ?></p>
-<p class='desc'> <?php echo $blog['blogDesc']; ?> 
+<img src="<?php echo $disp->imgLoc; ?>" class='img-responsive'>
+<h3><?php echo $disp->blogTitle; ?></h3>
+<p class='cat'> By, <a><?php echo $disp->blogAuthor; ?></a> on <?php echo $disp->createdOn ?></p>
+<p class='cat'> Category : <?php echo $disp->blogCategory; ?></p>
+<p class='desc'> <?php echo $disp->blogDesc; ?> </p>
 </form>
 </div>
 <?php } ?>
