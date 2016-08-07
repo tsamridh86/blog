@@ -44,6 +44,14 @@ class connector
 
   }
 
+  //this function calculates the number of digits of a number, this is used the algorithms below
+	function numberOfDigits($num)
+	{
+		if($num == 1 ) return 1;
+		 return ceil(log10($num));
+		
+	}
+
   //this is an extra function to calculate the name of the image to be replaced during the server upload
   function nameOfImage ( $fileName) 
   {
