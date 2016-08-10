@@ -37,7 +37,7 @@
 <body>
 	<!--This class is the admin wala, rest is pure magic -->
 	<form method='post' action="index.php">
-		<div class="login" id="login">
+		<div class="login siff" id="login">
 			<h4> Enter user details here </h4>
 			<span id="tar"> </span>
 			<p>User Name :</p>
@@ -52,7 +52,7 @@
 		</div>
 	</form>
 	<form method='post' action="index.php">
-		<div class="login" id="signUp">
+		<div class="login diff" id="signUp">
 			<h4> Alright, let's get you started </h4>
 			<p>New User Name :</p>
 			<input type="text" name="newName">

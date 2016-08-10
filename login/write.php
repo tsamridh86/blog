@@ -5,6 +5,7 @@
 	<!-- The link to the css comes here -->
 	<link rel="stylesheet" type="text/css" href="../css/user.css">
 </head>
+<body>
 <?php
 	//get the details of the user for filling up the database, these are kept in hidden, because the user is a dumb guy & doesnt need to know anyway. lol
 	
@@ -41,4 +42,5 @@
 <button class='ipt' type="submit">Post</button>
 <a class="cancel" href="userPage.php">Cancel</a>
 </form>
+</body>
 </html>

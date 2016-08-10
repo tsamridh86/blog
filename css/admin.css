@@ -65,8 +65,14 @@ body
     border: 1px solid black;
 }
 
+.diff {
+	background-color:purple;
+	color:white;
+}
 
+.siff{
 
+}
 
 .details p
 {

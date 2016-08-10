@@ -5,6 +5,7 @@
 4. All the blogs belonging to the user only must be displayed.
 5. This is going to be super complicated. so lol. -->
 <!doctype html>
+<html>
 <title> User Page </title>
 <head>
 <!-- Any links to the css or the javascript file will come here -->
@@ -47,20 +48,22 @@ if(!$blogger->isActive())
 <?php
 	//retrieve all the blogs written by the user
 	$connect = new connector();
-	$que = "select * from blog_master natural join blog_detail_image where bloggerId = ".$blogger->getId();
+	$blog = new blog();
+	$que = "select blogId from blog_master where bloggerId = ".$blogger->getId();
 	$blogs = $connect->executeQuery($que);
 	if(empty($blogs)) echo "<p> You have not written any blogs yet. </p>";
 	else
-	while($blog = $blogs->fetch_assoc())
+	while($row = $blogs->fetch_assoc())
 	{
+		$blog->getBlog($row['blogId']);
 ?>
 <div class="blog">
 <form method='post' action='edit.php'>
-<img src="<?php echo "../".$blog['blogImage']; ?>" class='img'>
-<h3><?php echo $blog['blogTitle']; ?></h3>
-<p class='cat'> Category : <?php echo $blog['blogCategory']; ?></p>
-<p class='desc'> <?php echo $blog['blogDesc']; ?> 
-<input type='submit' value="Edit" class="right ipt"></p>
+<input type="hidden" name="id" value="<?php echo $blog->getBlogId();?>">
+<img src="<?php echo "../".$blog->imgLoc ; ?>" class='img'>
+<h3><?php echo $blog->blogTitle; ?></h3>
+<p class='cat'>Category : <?php echo $blog->blogCategory; ?><input type='submit' value="Edit" class="right ipt"></p>
+<p class='desc'> <?php echo $blog->blogDesc; ?></p>
 </form>
 </div>
 <?php } ?>

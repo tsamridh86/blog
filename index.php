@@ -20,10 +20,10 @@
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav">
 				<li class="active"><a><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-				<li><a href="#">Link</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="login"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>
+				<li><a href="contact"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Contact Us</a></li>
 			</ul>
 		</div>
 	</div>
