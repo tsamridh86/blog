@@ -203,6 +203,7 @@
 			$this->blogActivity = $res['blogActivity'];
 			if(!empty($res['updatedDate']))
 				$this->updatedOn = $res['updatedDate'];
+			else $this->updatedOn = NULL;
 			$img = $connect->executeQuery("select blogImage from blog_detail_image where blogId = ".$id);
 			$img = $img->fetch_assoc();
 			$this->imgLoc = $img['blogImage'];

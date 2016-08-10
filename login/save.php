@@ -19,5 +19,9 @@
 	//time to save in the database, calling in the blog class
 	$blog = new blog();
 	$blog->writeblog($blogger->getId(), $_POST['title'], $_POST['desc'] , $_POST['category'], "images/".$file_name );
+	
+	//now since the user has made a update, make an update on his account as well
+	$conn = new connector();
+	$conn->executeQuery("update blogger_info set updatedDate = '".date('y-m-d')."' where bloggerId = ".$blogger->getId());
 	header("location:userPage.php");
 ?>

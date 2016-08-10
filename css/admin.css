@@ -43,10 +43,30 @@ body
 .details
 {
 	width: 100%;
-	margin:10px;
+	padding:10px;
 	font-family: "Calibri";
  	float: left;
+ 	margin-bottom: 20px;
+ 	height: auto;
+ 	max-height: 200px;
+ 	text-align: center;
+    border-collapse: collapse;
 }
+
+.details thead {
+	font-size: 20px;
+	font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+.details table, .details th, .details td {
+    border: 1px solid black;
+}
+
+
+
 
 .details p
 {
@@ -71,4 +91,8 @@ body
 .logout 
 {
 	float:right;
+	font-size : 18px;
+	color:red;
+	font-family: "ubuntu";
+	text-decoration: none;
 }

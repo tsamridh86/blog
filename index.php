@@ -34,7 +34,7 @@
 	require '/config/classBundle.php';
 	$connect = new connector();
 	$disp = new blog();
-	$que = "select blogId from blog_master order by createdDate desc";
+	$que = "select blogId from blog_master where blogActivity = 'A' order by createdDate desc";
 	$blogs = $connect->executeQuery($que);
 	if(empty($blogs)) echo "<p> There are no blogs here honey. </p>";
 	else
