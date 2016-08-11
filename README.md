@@ -1,10 +1,7 @@
 # blog
-blog for the st assignment
+blog for the st assignment 
 
-image addition in the blog will be added later.
-the homepage has not been configured to display the blogs yet.
-the edit page for each user is also not ready.
-the userpage is not ready, rest everything is up & working by now, maybe lol
+the userpage & the contact us is not ready, rest everything is up & working by now, maybe lol
 
 all of the classes are inside config folder, css in css, js in js & the rest of the folder are made for easier navigation.
 
