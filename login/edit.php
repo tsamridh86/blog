@@ -29,6 +29,7 @@
 	</head>
 	<body>
 		<form method="post" action="update.php" enctype="multipart/form-data">
+		<input type="hidden" name="id" value="<?php echo $_POST['id']; ?>">
 			<table class="title">
 				<tr>
 					<td class = 'left'><span>Title : </span></td>
