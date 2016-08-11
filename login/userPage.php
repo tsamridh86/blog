@@ -62,6 +62,8 @@ if(!$blogger->isActive())
 <input type="hidden" name="id" value="<?php echo $blog->getBlogId();?>">
 <img src="<?php echo "../".$blog->imgLoc ; ?>" class='img'>
 <h3><?php echo $blog->blogTitle; ?></h3>
+<p class='cat'> By, you on <?php echo $blog->createdOn; ?></p>
+<?php if(!empty($blog->updatedOn)) echo "<p class='cat'> Last updated on , ".$blog->updatedOn; ?>
 <p class='cat'>Category : <?php echo $blog->blogCategory; ?><input type='submit' value="Edit" class="right ipt"></p>
 <p class='desc'> <?php echo $blog->blogDesc; ?></p>
 </form>

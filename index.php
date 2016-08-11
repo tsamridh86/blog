@@ -47,6 +47,7 @@
 <img src="<?php echo $disp->imgLoc; ?>" class='img-responsive'>
 <h3><?php echo $disp->blogTitle; ?></h3>
 <p class='cat'> By, <a><?php echo $disp->blogAuthor; ?></a> on <?php echo $disp->createdOn; ?></p>
+<?php if(!empty($disp->updatedOn)) echo "<p class='cat'> Last updated on , ".$disp->updatedOn; ?>
 <p class='cat'> Category : <?php echo $disp->blogCategory; ?></p>
 <p class='desc'> <?php echo $disp->blogDesc; ?> </p>
 </form>
