@@ -41,6 +41,10 @@
 				</tr>
 				<tr>
 					<td class = 'left'><span>Image :</span></td>
+					<td class="small"> <div class='response'><img class='img' src="<?php echo "../".$blog->imgLoc; ?>"></div></td>
+				</tr>
+				<tr>
+				<td></td>
 					<td class="small"> <input type="file" name="pic"> <span class="warn"> Uploading a image will replace the older one </span></td>
 				</tr>
 				<tr><td><span>Description :</span></td></tr>

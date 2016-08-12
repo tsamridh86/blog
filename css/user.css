@@ -97,3 +97,7 @@ textarea {
 	padding: 8px;
 	border-radius:10px;
 }
+
+.response {
+	width: 300px;
+}
