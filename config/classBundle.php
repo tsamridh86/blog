@@ -61,17 +61,15 @@
 		public function showDetails($userName)
 		{
 			$this->getDetails($userName);
-			echo "<p>Blogger ID : ".$this->bloggerId."</p>" ;
-			echo "<p>User Name : ".$this->userName."</p>" ;
-			echo "<p>Password : ".$this->password."</p>" ;
-			echo "<p>Created On : ".$this->createdOn."</p>" ;
+			echo "<p>About, ".$this->userName."</p>" ;
+			echo "<p>Joined on ".$this->createdOn."</p>" ;
 			echo "<p>Activity : ";
 			if($this->isActive == 'Y')
 				echo "Active.";
 			else echo "Not Active.";
 			echo "</p>";
-			echo "<p>Updated On: ".$this->updatedOn."</p>" ;
-			if($this->endDate)
+			echo "<p>Latest Update: ".$this->updatedOn."</p>" ;
+			if($this->endDate && $this->endDate != '0000-00-00')
 			echo "<p>End date : ".$this->endDate."</p>" ;
 		}
 
@@ -124,6 +122,11 @@
 		public function getId()
 		{
 			return $this->bloggerId;
+		}
+
+		public function getUserName()
+		{
+			return $this->userName;
 		}
 	}
 

@@ -101,3 +101,8 @@ textarea {
 .response {
 	width: 300px;
 }
+
+.userDetails {
+	font-family: "ubuntu";
+	font-size: 20px;
+}

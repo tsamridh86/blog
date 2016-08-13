@@ -47,6 +47,7 @@
 			<input type="password" name="pswd">
 			<br><br>
 			<input type="submit" value="Login">
+			<a href="../" class="cancel"> Cancel</a>
 			<br><br>
 			<a onclick="changestuff();">New here? Click here to signup</a>
 		</div>
@@ -61,6 +62,7 @@
 			<input type="password" name="newPswd">
 			<br><br>
 			<input type="submit" value="Sign Up">
+			<a href="../" class="cancel"> Cancel</a>
 			<br><br>
 			<a onclick="changestuff();">Already a member? Login here</a>
 		</div>

@@ -46,7 +46,7 @@
 <form method='post' action='edit.php'>
 <img src="<?php echo $disp->imgLoc; ?>" class='img-responsive'>
 <h3><?php echo $disp->blogTitle; ?></h3>
-<p class='cat'> By, <a href='user'><?php echo $disp->blogAuthor; ?></a> on <?php echo $disp->createdOn; ?></p>
+<p class='cat'> By, <a href='user/userDetails.php?id=<?php echo $disp->getBloggerId();?>'><?php echo $disp->blogAuthor; ?></a> on <?php echo $disp->createdOn; ?></p>
 <?php if(!empty($disp->updatedOn)) echo "<p class='cat'> Last updated on , ".$disp->updatedOn; ?>
 <p class='cat'> Category : <?php echo $disp->blogCategory; ?></p>
 <p class='desc'> <?php echo $disp->blogDesc; ?> </p>
