@@ -1,7 +1,7 @@
 # blog
 blog for the st assignment 
 
-the userpage & the contact us is not ready, rest everything is up & working by now, maybe lol
+everything is up & working by now, maybe lol
 
 all of the classes are inside config folder, css in css, js in js & the rest of the folder are made for easier navigation.
 
