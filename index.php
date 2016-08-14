@@ -17,17 +17,31 @@
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">Blog</a>
 		</div>
-		<div class="collapse navbar-collapse navbar-ex1-collapse">
+		
 			<ul class="nav navbar-nav">
 				<li class="active"><a><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="login"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>
-				<li><a href="contact"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Contact Us</a></li>
+				<li><a href="contact" data-toggle="modal" data-target="#popUpWindow"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Contact Us</a></li>
 			</ul>
-		</div>
+		
 	</div>
 </nav>
+<div class="modal fade" id="popUpWindow">
+	<div class="modal-dialog">
+	<div class="modal-content">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">x</button>
+		<h3> <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Contact administrator </h3>
+	</div>
+	<div class="modal-body">
+		
+	</div>
+	<div class="modal-footer"></div>
+	</div>
+	</div>
+</div>
 <div class="container-fluid bg">
 <?php
 	//retrieve all the blogs written by the user
