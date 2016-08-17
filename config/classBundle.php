@@ -15,7 +15,7 @@
 		public function __construct()
 		{
 			//we make sure that the table is created & if it is not then we create it on the spot.
-			$createBlogger = "create table if not exists blogger_info ( bloggerId int primary key auto_increment, userName varchar(50), password varchar(25), createdDate date, isActive char(1) default 'N', updatedDate date, endDate date)";
+			$createBlogger = "create table if not exists blogger_info ( bloggerId int primary key auto_increment, userName varchar(50), password varchar(32), createdDate date, isActive char(1) default 'N', updatedDate date, endDate date)";
 			$connect = new connector();
 			$connect->executeQuery($createBlogger);
 		}
@@ -23,7 +23,7 @@
 		private function checkUser ($userName , $password)
 		{
 			//check to see whether the same userName exists to warn the person
-			$warn = "select userName from blogger_info where userName = '".$userName."' and password = '".$password."'";
+			$warn = "select userName from blogger_info where userName = '".$userName."' and password = '".md5($password)."'";
 			$connect = new connector();
 			$res = $connect->executeQuery($warn);
 			return $res;
@@ -52,7 +52,7 @@
 			
 			else //create account if it is a unique userName 
 			{
-				$createUser = "insert into blogger_info (userName , password, createdDate , updatedDate , endDate ) values ('".$userName."','".$password."','".date("Y-m-d")."','".date("Y-m-d")."',NULL)";
+				$createUser = "insert into blogger_info (userName , password, createdDate , updatedDate , endDate ) values ('".$userName."','".md5($password)."','".date("Y-m-d")."','".date("Y-m-d")."',NULL)";
 				$connect->executeQuery($createUser);
 				echo "<p class='success'>Account successfully created. Login to begin.</p>";
 			}
@@ -147,7 +147,7 @@
 		public function __construct()
 		{
 			//we make sure that the table is created & if it is not then we create it on the spot.
-			$createBlogger = "create table if not exists blog_master ( blogId int primary key auto_increment, bloggerId int references bloggerId(blogger_info) , blogTitle varchar(50), blogDesc varchar(100), blogCategory varchar(10), createdDate date,  updatedDate date default NULL, blogActivity char(1) default 'A')";
+			$createBlogger = "create table if not exists blog_master ( blogId int primary key auto_increment, bloggerId int references bloggerId(blogger_info) , blogTitle varchar(50), blogDesc text, blogCategory varchar(10), createdDate date,  updatedDate date default NULL, blogActivity char(1) default 'A')";
 			$createImage = "create table if not exists blog_detail_image (blogDetailId int primary key auto_increment, blogId int references blogId(blog_master), blogImage varchar(50))";
 			$connect = new connector();
 			$connect->executeQuery($createBlogger);

@@ -1,7 +1,6 @@
 <!-- Objective of this page
 1. Create a nice UI for login & signup
 2. The created blogger should be deactivated by default, the user will be later be activated by the admin.
-3. There is currently no method to encrypt/decrypt the password, so you're more insecure than a teenage girl.
 -->
 <!doctype html>
 <head>

@@ -49,7 +49,7 @@
 				</tr>
 				<tr><td><span>Description :</span></td></tr>
 			</table>
-			<textarea maxlength="100" name='desc' rows="5" cols="100"><?php echo $blog->blogDesc; ?></textarea><br>
+			<textarea name='desc' rows="5" cols="100"><?php echo $blog->blogDesc; ?></textarea><br>
 			<button class='ipt' type="submit">Update</button>
 			<a class="cancel" href="userPage.php">Cancel</a>
 		</form>
