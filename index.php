@@ -36,9 +36,14 @@
 		<h3> <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Contact administrator </h3>
 	</div>
 	<div class="modal-body">
-		
+		<p>Trust me, I'm an engineer.</p>
+		<p>Feel free to contact me.</p>
 	</div>
-	<div class="modal-footer"></div>
+	<div class="modal-footer">
+		<p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 8758624706 </p>
+		<p><span class="glyphicon glyphicon-glyphicon glyphicon-envelope" aria-hidden="true"></span> t.samridh.86@gmail.com</p>
+		<p><span class="glyphicon glyphicon-glyphicon glyphicon-home" aria-hidden="true"></span> H-13, S.V.National Institute Of Technology, Surat</p>
+	</div>
 	</div>
 	</div>
 </div>
