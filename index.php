@@ -17,7 +17,6 @@
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">Blog</a>
 		</div>
-		
 			<ul class="nav navbar-nav">
 				<li class="active"><a><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
 			</ul>
@@ -25,7 +24,6 @@
 				<li><a href="login"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>
 				<li><a href="contact" data-toggle="modal" data-target="#popUpWindow"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Contact Us</a></li>
 			</ul>
-		
 	</div>
 </nav>
 <div class="modal fade" id="popUpWindow">

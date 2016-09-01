@@ -1,10 +1,11 @@
-<!-- Objective of this page
+<!--
 	1. Admin should be able to see all the bloggers.  <- Done
 	2. Admin can deactivate & activate bloggers at will.
 	3. Admin can delete posts at will.
 	4. Admin is baap & maa at the same time. #super-position
 -->
 <?php
+	error_reporting(0);
 	session_start();
 	if(($_POST['userName']=="admin" && $_POST['pswd']=="admin@123")||$_SESSION['userName']=='admin')
 	{
@@ -37,6 +38,9 @@
 </head>
 <body>
 	<a href="/blog/admin/logout.php" class='logout'>Logout</a>
+	<div class='header'>
+	<h4> Welcome, administrator </h3>
+	</div>
 	<div class="header">
 		<h4>List of Bloggers :</h4>
 	</div>
